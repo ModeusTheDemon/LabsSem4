@@ -47,11 +47,11 @@ namespace lab1
         {
             if (WindowState == WindowState.Normal)
             {
-                WindowState = WindowState.Minimized;
-            }
-            else if (WindowState == WindowState.Minimized)
-            {
                 WindowState = WindowState.Maximized;
+            }
+            else if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Minimized;
             }
             else
             {
@@ -63,11 +63,11 @@ namespace lab1
         {
             if (e.Key == Key.Space)
             {
-                var newWidth = (Width == MaxWidth) ? MinWidth : MaxWidth;
-                var newHeight = (Height == MaxHeight) ? MinHeight : MaxHeight;
+                double CommonWidth = (MaxWidth + MinWidth) / 2;
+                double CommonHeight = (MaxHeight + MinHeight) / 2;
 
-                Width = newWidth;
-                Height = newHeight;
+                Width = CommonWidth + (CommonWidth - Width);
+                Height = CommonHeight + (CommonHeight - Height);
             }
             else if (e.Key == Key.Escape)
             {

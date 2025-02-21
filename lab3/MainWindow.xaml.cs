@@ -6,10 +6,12 @@ namespace Lab3
 {
     public partial class MainWindow : Window
     {
-        private int initialX = 150;
-        private int initialY = 100;
-        private int currentX;
-        private int currentY;
+        int initialX = 150;
+        int initialY = 100;
+        int currentX;
+        int currentY;
+        int MovementX = 20;
+        int MovementY = 20;
 
         public MainWindow()
         {
@@ -38,30 +40,30 @@ namespace Lab3
 
         private void UpdateButtonStates()
         {
-            UpButton.IsEnabled = currentY > 0;
-            DownButton.IsEnabled = currentY < (int)Height - PointLabel.ActualHeight;
-            LeftButton.IsEnabled = currentX > 0;
-            RightButton.IsEnabled = currentX < (int)Width - PointLabel.ActualWidth;
+            UpButton.IsEnabled = currentY - MovementY >= 0;
+            DownButton.IsEnabled = currentY + 2 * MovementY <= (int)Height - PointLabel.ActualHeight;
+            LeftButton.IsEnabled = currentX - MovementX >= 0;
+            RightButton.IsEnabled = currentX + 2 * MovementX <= (int)Width - PointLabel.ActualWidth;
         }
 
         private void UpButton_Click(object sender, RoutedEventArgs e)
         {
-            MovePoint(0, -10);
+            MovePoint(0, -MovementY);
         }
 
         private void DownButton_Click(object sender, RoutedEventArgs e)
         {
-            MovePoint(0, 10);
+            MovePoint(0, MovementY);
         }
 
         private void LeftButton_Click(object sender, RoutedEventArgs e)
         {
-            MovePoint(-10, 0);
+            MovePoint(-MovementX, 0);
         }
 
         private void RightButton_Click(object sender, RoutedEventArgs e)
         {
-            MovePoint(10, 0);
+            MovePoint(MovementX, 0);
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)

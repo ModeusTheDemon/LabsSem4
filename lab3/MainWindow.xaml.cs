@@ -6,8 +6,8 @@ namespace Lab3
 {
     public partial class MainWindow : Window
     {
-        int initialX = 150;
-        int initialY = 100;
+        int initialX;
+        int initialY;
         int currentX;
         int currentY;
         int MovementX = 20;
@@ -16,6 +16,8 @@ namespace Lab3
         public MainWindow()
         {
             InitializeComponent();
+            initialX = (int)PointLabel.Margin.Left;
+            initialY = (int)PointLabel.Margin.Top;
             currentX = initialX;
             currentY = initialY;
             UpdateButtonStates();
@@ -26,7 +28,6 @@ namespace Lab3
             int newX = currentX + deltaX;
             int newY = currentY + deltaY;
 
-            // Проверяем, чтобы точка не выходила за границы окна
             if (newX >= 0 && newX <= (int)Width - PointLabel.ActualWidth &&
                 newY >= 0 && newY <= (int)Height - PointLabel.ActualHeight)
             {

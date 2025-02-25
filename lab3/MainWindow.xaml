@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Лабораторная работа №3" Height="450" Width="700" ResizeMode="NoResize">
     <Grid>
-        <Label x:Name="PointLabel" Content="+" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,100,0,0"/>
+        <Label x:Name="PointLabel" Content="+" FontSize="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="148,200,0,0"/>
         <Button x:Name="UpButton" Content="ВВЕРХ" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="500,-100,0,0" Width="75" Click="UpButton_Click"/>
         <Button x:Name="DownButton" Content="ВНИЗ" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="500,100,0,0" Width="75" Click="DownButton_Click"/>
         <Button x:Name="LeftButton" Content="ВЛЕВО" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,0,0,0" Width="75" Click="LeftButton_Click"/>

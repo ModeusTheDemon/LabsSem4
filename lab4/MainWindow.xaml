@@ -1,0 +1,36 @@
+﻿<Window x:Class="Lab4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Бондаренко Ярослав МО1" Height="300" Width="400" Background="WhiteSmoke"
+        ResizeMode="NoResize">
+    <StackPanel Margin="10">
+        <!-- Заголовки -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0">
+            <TextBlock Text="Миша" FontWeight="Bold" FontStyle="Italic" Width="60"/>
+            <TextBlock Text="Саша" FontWeight="Bold" FontStyle="Italic" Width="60"/>
+        </StackPanel>
+        
+        <!-- Яблоки -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="40,0">
+            <TextBlock x:Name="apples" Text="Яблоки" Height="20" Width="45" />
+            <TextBox x:Name="MishaApples" Width="100" Margin="5"/>
+            <TextBox x:Name="SashaApples" Width="100" Margin="5"/>
+        </StackPanel>
+
+        <!-- Груши -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="40,0">
+            <TextBlock x:Name="pears" Text="Груши" Height="20" Width="45" />
+            <TextBox x:Name="MishaPears" Width="100" Margin="5"/>
+            <TextBox x:Name="SashaPears" Width="100" Margin="5"/>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="105,20">
+            <Button x:Name="BtnCalculate" Content="СЧЁТ" Width="80" Margin="5" Click="BtnCalculate_Click"/>
+            <Button x:Name="BtnReset" Content="СБРОС" Width="80" Margin="5" Click="BtnReset_Click"/>
+        </StackPanel>
+
+        <!-- Результат -->
+        <TextBlock x:Name="TbResult" Margin="5" TextWrapping="Wrap" Visibility="Collapsed"/>
+    </StackPanel>
+</Window>

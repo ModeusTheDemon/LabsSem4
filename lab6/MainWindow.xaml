@@ -1,0 +1,55 @@
+﻿<Window x:Class="UserForm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Бондаренко Ярослав МО1" Height="450" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Страна -->
+        <TextBlock Grid.Row="0" Text="Страна:" Margin="0 0 0 5"/>
+        <ComboBox Grid.Row="1" x:Name="cmbCountry" DisplayMemberPath="Name" Margin="0 0 0 10"/>
+
+        <!-- Тип телефона -->
+        <TextBlock Grid.Row="2" Text="Тип телефона:" Margin="0 0 0 5"/>
+        <ListBox Grid.Row="3" x:Name="lstPhoneType" SelectionMode="Single" Margin="0 0 0 10"
+                 SelectionChanged="lstPhoneType_SelectionChanged">
+            <ListBoxItem>мобильный</ListBoxItem>
+            <!-- Исправлен регистр -->
+            <ListBoxItem>домашний</ListBoxItem>
+            <!-- Исправлен регистр -->
+        </ListBox>
+
+        <!-- Телефон -->
+        <TextBlock Grid.Row="4" Text="Телефон:" Margin="0 0 0 5"/>
+        <TextBox Grid.Row="5" 
+                 x:Name="txtPhone" 
+                 Margin="0,0,0,10" 
+                 TextChanged="txtPhone_TextChanged"
+                 GotFocus="txtPhone_GotFocus" 
+                 LostFocus="txtPhone_LostFocus"
+                 Foreground="Gray"/>
+
+        <!-- ФИО -->
+        <TextBlock Grid.Row="6" Text="Фамилия и Имя:" Margin="0 0 0 5"/>
+        <TextBox Grid.Row="7" x:Name="txtFullName" Margin="0 0 0 10"/>
+
+        <!-- Дата рождения -->
+        <TextBlock Grid.Row="8" Text="Дата рождения (дд.мм.гггг):" Margin="0 0 0 5"/>
+        <TextBox Grid.Row="9" x:Name="txtBirthDate" Margin="0 0 0 10"/>
+
+        <!-- Кнопка -->
+        <Button Grid.Row="9" Content="Отправить заявку" Click="BtnSubmit_Click" 
+                Height="30" Margin="0,40,0,0" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

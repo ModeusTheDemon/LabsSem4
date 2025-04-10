@@ -1,0 +1,70 @@
+﻿<Window x:Class="ColorSliderApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Color Control" Height="400" Width="600">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая панель - Цветовые каналы -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+            <!-- Красный -->
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Red.v" FontWeight="Bold"/>
+                <Slider x:Name="RedSlider" Minimum="0" Maximum="255" Value="255"
+                        TickFrequency="25" TickPlacement="BottomRight" 
+                        IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged"/>
+                <TextBox x:Name="RedTextBox" Text="{Binding Value, ElementName=RedSlider, Mode=TwoWay}"
+                         Width="60" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <!-- Зеленый -->
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Green.v" FontWeight="Bold"/>
+                <Slider x:Name="GreenSlider" Minimum="0" Maximum="255" Value="255"
+                        TickFrequency="25" TickPlacement="BottomRight"
+                        IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged"/>
+                <TextBox x:Name="GreenTextBox" Text="{Binding Value, ElementName=GreenSlider, Mode=TwoWay}" 
+                         Width="60" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <!-- Синий -->
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Blue.v" FontWeight="Bold"/>
+                <Slider x:Name="BlueSlider" Minimum="0" Maximum="255" Value="255"
+                        TickFrequency="25" TickPlacement="BottomRight"
+                        IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged"/>
+                <TextBox x:Name="BlueTextBox" Text="{Binding Value, ElementName=BlueSlider, Mode=TwoWay}"
+                         Width="60" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <!-- Кнопка рандома -->
+            <Button x:Name="RandomButton" Content="Рандомный цвет" Click="RandomButton_Click"
+                    Margin="0,20" Padding="10,5" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <!-- Центральная область - Прямоугольник и текст -->
+        <Grid Grid.Column="1" Margin="20">
+            <Label x:Name="HiddenLabel" Content="Visible Text" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" FontSize="16" Visibility="Hidden"
+                   FontWeight="Bold" Foreground="White"/>
+            <Rectangle x:Name="ColorRect" Width="180" Height="180" RadiusX="15" RadiusY="15">
+                <Rectangle.Fill>
+                    <SolidColorBrush x:Name="RectColor" Color="#FFFF0000"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+
+        <!-- Правая панель - Прозрачность -->
+        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+            <TextBlock Text="V=100%" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+            <Slider x:Name="AlphaSlider" Minimum="0" Maximum="100" Value="100" Orientation="Vertical"
+                    Height="200" TickFrequency="25" IsSnapToTickEnabled="True"
+                    ValueChanged="AlphaSlider_ValueChanged"/>
+            <TextBlock Text="0%" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

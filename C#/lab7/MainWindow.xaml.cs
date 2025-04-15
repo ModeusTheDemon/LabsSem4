@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Lab7
@@ -14,6 +15,7 @@ namespace Lab7
         public MainWindow()
         {
             InitializeComponent();
+            scrollVisibility.Value = 100;
 
             sliderR.ValueChanged += (s, e) => UpdateColor();
             sliderG.ValueChanged += (s, e) => UpdateColor();
@@ -47,12 +49,33 @@ namespace Lab7
         private void BtnRandom_Click(object sender, RoutedEventArgs e)
         {
             var rnd = new Random();
-            sliderR.Value = rnd.Next(0, 6) * 50; // 0, 50, 100...250
-            sliderG.Value = rnd.Next(0, 6) * 50;
-            sliderB.Value = rnd.Next(0, 6) * 50;
+            sliderR.Value = Math.Floor(rnd.Next(0, 12) * 21.25); 
+            sliderG.Value = Math.Floor(rnd.Next(0, 12) * 21.25);
+            sliderB.Value = Math.Floor(rnd.Next(0, 12) * 21.25);
             _clickCount++;
             btnRandom.IsEnabled = _clickCount < _maxClickCount && scrollVisibility.Value >= 25;
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                if (byte.TryParse(textBox.Text, out byte value))
+                {
+                    switch (textBox.Name)
+                    {
+                        case "txtR":
+                            if (sliderR != null) sliderR.Value = value;
+                            break;
+                        case "txtG":
+                            if (sliderG != null) sliderG.Value = value;
+                            break;
+                        case "txtB":
+                            if (sliderB != null) sliderB.Value = value; 
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

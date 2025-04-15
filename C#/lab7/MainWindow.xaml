@@ -14,19 +14,19 @@
         <!-- RGB Controls -->
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="R:" Margin="5"/>
-            <TextBox x:Name="txtR" Width="50" Margin="5" Text="255"/>
+            <TextBox x:Name="txtR" Width="50" Margin="5" Text="255" TextChanged="TextBox_TextChanged"/>
             <Slider x:Name="sliderR" Minimum="0" Maximum="255" Width="200" Margin="5"
                     TickFrequency="25" IsSnapToTickEnabled="True" Value="255"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBlock Text="G:" Margin="5"/>
-            <TextBox x:Name="txtG" Width="50" Margin="5" Text="255"/>
+            <TextBox x:Name="txtG" Width="50" Margin="5" Text="255" TextChanged="TextBox_TextChanged"/>
             <Slider x:Name="sliderG" Minimum="0" Maximum="255" Width="200" Margin="5"
                     TickFrequency="25" IsSnapToTickEnabled="True" Value="255"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <TextBlock Text="B:" Margin="5"/>
-            <TextBox x:Name="txtB" Width="50" Margin="5" Text="255"/>
+            <TextBox x:Name="txtB" Width="50" Margin="5" Text="255" TextChanged="TextBox_TextChanged"/>
             <Slider x:Name="sliderB" Minimum="0" Maximum="255" Width="200" Margin="5"
                     TickFrequency="25" IsSnapToTickEnabled="True" Value="255"/>
         </StackPanel>
@@ -35,13 +35,13 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="Видимость:" Margin="5"/>
             <ScrollBar x:Name="scrollVisibility" Minimum="0" Maximum="100" 
-                       Orientation="Horizontal" Width="200" Margin="5" Value="100"/>
+                       Orientation="Horizontal" Width="200" Margin="5" Value="0"/>
         </StackPanel>
 
         <!-- Color Display -->
         <Grid Grid.Row="3" Margin="0,30,0,180">
             <Label x:Name="lblText" Content="Текст за прямоугольником" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible"/>
             <Rectangle x:Name="colorRect" Width="200" Height="150" Stroke="Black" 
                        HorizontalAlignment="Center" Margin="0,-30,0,0" />
         </Grid>

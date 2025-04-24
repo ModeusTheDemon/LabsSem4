@@ -1,0 +1,26 @@
+﻿<Window x:Class="StudentApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentApp"
+        mc:Ignorable="d"
+        Title="Students" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Button Content="Москва" Click="FilterMoscow_Click" Margin="5"/>
+            <Button Content="18+" Click="FilterAdults_Click" Margin="5"/>
+            <TextBox x:Name="YearBox" Width="60" Margin="5"/>
+            <Button Content="По году" Click="FilterByYear_Click" Margin="5"/>
+            <Button Content="Знакомство" Click="ShowIntro_Click" Margin="5"/>
+            <Button Content="Дальний гость" Click="SortByDistance_Click" Margin="5"/>
+            <Button Content="По коду" Click="GroupByPhoneCode_Click" Margin="5"/>
+            <Button Content="Добавить" Click="AddStudent_Click" Margin="5"/>
+        </StackPanel>
+        <DataGrid x:Name="StudentsGrid" Grid.Row="1" AutoGenerateColumns="True"/>
+    </Grid>
+</Window>
